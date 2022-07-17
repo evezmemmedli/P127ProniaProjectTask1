@@ -18,15 +18,13 @@ namespace P127ProniaProject.Controllers
         }
         public IActionResult Index()
         {
-
-
             HomeVM model = new HomeVM
             {
                 Sliders = _context.Sliders.ToList(),
                 Plants = _context.Plants.Include(p=>p.PlantImages).ToList(),
             };
 
-            return View(model);
+            return View(model); 
         }
     }
 }

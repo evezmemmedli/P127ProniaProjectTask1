@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using P127ProniaProject.DAL;
+using P127ProniaProject.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace P127ProniaProject
             {
                 opt.UseSqlServer(_config.GetConnectionString("Default"));
             });
+            services.AddScoped<LayoutService>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
