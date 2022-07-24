@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using P127ProniaProject.Models;
 using System.Linq;
 
-namespace P127ProniaProject.DAL
+namespace P127ProniaProject.DAL 
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -33,6 +35,9 @@ namespace P127ProniaProject.DAL
             }
             modelBuilder.Entity<Setting>()
                 .HasIndex(p => p.Key).IsUnique();
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Category>()
+                .HasIndex(p => p.Name).IsUnique();
             base.OnModelCreating(modelBuilder);
         }
 

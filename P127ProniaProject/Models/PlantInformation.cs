@@ -6,7 +6,6 @@ namespace P127ProniaProject.Models
     public class PlantInformation:BaseEntity
 
     {
-
         public string Shipping { get; set; }
 
         public string AboutReturnRequest { get; set; }

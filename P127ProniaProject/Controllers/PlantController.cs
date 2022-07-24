@@ -13,7 +13,6 @@ namespace P127ProniaProject.Controllers
     public class PlantController : Controller
     {
         private readonly AppDbContext _context;
-
         public PlantController(AppDbContext context)
         {
             _context = context;
@@ -61,7 +60,6 @@ namespace P127ProniaProject.Controllers
                 .FirstOrDefaultAsync(p => p.Id == id);
             return PartialView("_plantDetail", plant);
         }
-
         public async Task< IActionResult> AddBasket(int? id)
         {
             if(id == null || id == 0) return NotFound();
@@ -112,8 +110,6 @@ namespace P127ProniaProject.Controllers
 
             return RedirectToAction("Index","Home");
         }
-
-
         public IActionResult Showbasket()
         {
             if(HttpContext.Request.Cookies["Basket"]==null) return NotFound();

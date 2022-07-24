@@ -1,5 +1,7 @@
-﻿using P127ProniaProject.Models.Base;
+﻿using Microsoft.AspNetCore.Http;
+using P127ProniaProject.Models.Base;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace P127ProniaProject.Models
 {
@@ -27,6 +29,17 @@ namespace P127ProniaProject.Models
 
         public List<PlantTag>PlantTags { get; set; }
 
+        [NotMapped]
+        public IFormFile MainPhoto { get; set; }
+
+        [NotMapped]
+        public IFormFile HoverPhoto { get; set; }
+
+        [NotMapped]
+        public List<IFormFile> Photos { get; set; }
+
+        [NotMapped]
+        public List<int> CategoryIds { get; set; }
 
     }
 }
